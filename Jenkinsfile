@@ -2,12 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Cloner le dépôt') {
+        stage('Clôner le dépot') {
             steps {
-                git 'https://github.com/Beaurain-Hugo/app_pipeline_jenkins' // URL de votre dépôt Git
+                // Cloner la branche main du dépôt public
+                git url: 'https://github.com/Beaurain-Hugo/app_pipeline_jenkins.git', branch: 'main'
             }
         }
-        stage('Check Python Version') {
+        stage('Vérifier la version de Python') {
             steps {
                 script {
                     // Vérifier que python3 et pip3 sont disponibles dans le PATH
@@ -16,7 +17,7 @@ pipeline {
                 }
             }
         }
-        stage('Install Dependencies') {
+        stage('Installer les dépendances') {
             steps {
                 script {
                     // Installer les dépendances dans l'environnement global
@@ -24,7 +25,7 @@ pipeline {
                 }
             }
         }
-        stage('Run Tests') {
+        stage('Lancer les Tests') {
             steps {
                 script {
                     // Exécuter les tests avec python3
