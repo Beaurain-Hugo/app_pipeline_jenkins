@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     // Installer les dépendances dans l'environnement global
-                    sh 'pip3 install --break-system-packages -r requirements.txt'
+                    sh 'pip3 install --break-system-packages -r flask==2.2.3'
                 }
             }
         }
